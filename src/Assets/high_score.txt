@@ -1,7 +1,0 @@
-HASSAN    2100
-aa  650
-Hassan     550
-test      300
-aa 250
-test       200
-hassan   50
