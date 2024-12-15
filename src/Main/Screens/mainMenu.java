@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Moham
  */
 public class mainMenu extends javax.swing.JFrame {
-
+    
     public static Clip clip;
     public static int currentVolume = 50;
 
@@ -25,8 +25,9 @@ public class mainMenu extends javax.swing.JFrame {
      */
     public mainMenu() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         initComponents();
+        setTitle("YaRabFokElDeqa");
         File soundFile = new File("src/Assets/Sounds/commercial-aircraft-in-flight-announcement-5-17499.wav");
-
+        
         if (!soundFile.exists()) {
             System.err.println("Sound file not found: " + soundFile.getAbsolutePath());
             return;
@@ -42,7 +43,7 @@ public class mainMenu extends javax.swing.JFrame {
         float gain = (range * currentVolume / 100.0f) + gainControl.getMinimum();
         gainControl.setValue(gain);
         setResizable(false);
-
+        
         setLocationRelativeTo(null); // Center the window
     }
 
@@ -177,7 +178,7 @@ public class mainMenu extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
-
+    
     public void playSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         // Adjust the path to match the location of your sound file 
         File soundFile = new File("Assets/sounds/commercial-aircraft-in-flight-announcement-5-17499.wav");

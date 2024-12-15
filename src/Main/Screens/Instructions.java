@@ -21,6 +21,8 @@ public class Instructions extends javax.swing.JFrame {
      */
     public Instructions() {
         initComponents();
+        setTitle("Instruction Page");
+
         setLocationRelativeTo(null); // Center the window
     }
 

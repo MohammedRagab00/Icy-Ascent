@@ -22,6 +22,8 @@ public class Settings extends javax.swing.JFrame {
      */
     public Settings() {
         initComponents();
+        setTitle("Adjust Sound Page");
+
         setLocationRelativeTo(null); // Center the window
 
     }
@@ -82,7 +84,7 @@ public class Settings extends javax.swing.JFrame {
 
     private void jSlider1VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jSlider1VetoableChange
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jSlider1VetoableChange
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

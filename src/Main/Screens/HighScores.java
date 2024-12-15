@@ -4,7 +4,11 @@
  */
 package Main.Screens;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.LineUnavailableException;
@@ -16,12 +20,55 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class HighScores extends javax.swing.JFrame {
 
+    private List<String> highScores;
+
     /**
      * Creates new form HighScores
      */
     public HighScores() {
         initComponents();
+        setTitle("High Scores Page");
+
         setLocationRelativeTo(null); // Center the window
+        loadHighScores(); // Load scores from the file
+        displayHighScores(); // Display scores in the frame
+    }
+
+    private void loadHighScores() {
+        highScores = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("scores.dat"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                highScores.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        while (highScores.size() < 8) {
+            highScores.add("");
+        }
+    }
+
+    private void displayHighScores() {
+        for (int i = 0; i < 8; i++) {
+            String entry = highScores.get(i);
+            if (entry.length() > 0) {
+                String[] parts = entry.split(",");
+                String name = parts[0].length() > 14 ? parts[0].substring(0, 14) : parts[0];
+                String score = parts[1];
+                highScores.set(i, name + " - " + score);
+            } else {
+                highScores.set(i, "");
+            }
+        }
+        jLabel2.setText(highScores.get(0));
+        jLabel3.setText(highScores.get(1));
+        jLabel4.setText(highScores.get(2));
+        jLabel5.setText(highScores.get(3));
+        jLabel6.setText(highScores.get(4));
+        jLabel7.setText(highScores.get(5));
+        jLabel8.setText(highScores.get(6));
+        jLabel9.setText(highScores.get(7));
     }
 
     /**
@@ -61,42 +108,42 @@ public class HighScores extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 120, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 180, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 215, 120, 40));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 215, 180, 40));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 120, 40));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 180, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 285, 120, 40));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 285, 180, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 120, 40));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 180, 40));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 355, 120, 40));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 355, 180, 40));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 120, 40));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 180, 40));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 425, 90, 40));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 425, 180, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/highScore.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 700));
