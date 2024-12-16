@@ -4,11 +4,16 @@
  */
 package Main.Screens;
 
+import static Main.Screens.mainMenu.clip;
+import java.awt.Color;
+import java.awt.Font;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -142,27 +147,65 @@ public class Levels extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    static String s1, s2;
+
+    void saveName() {
+        s1 = "";
+        s2 = "";
+
+        UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 18));
+        UIManager.put("OptionPane.background", new Color(0, 0, 128)); // Dark blue
+        UIManager.put("Panel.background", new Color(0, 0, 128)); // Dark blue
+        UIManager.put("OptionPane.messageForeground", new Color(0, 255, 255)); // Bright cyan
+        UIManager.put("Button.background", new Color(0, 255, 0)); // Bright green
+        UIManager.put("Button.foreground", Color.BLACK); // Text color on buttons
+        UIManager.put("TextField.background", new Color(173, 216, 230)); // Light blue
+        UIManager.put("TextField.foreground", Color.BLACK); // Text color in text fields
+        UIManager.put("TextField.font", new Font("Arial", Font.PLAIN, 16));
+
+        while (s1 != null && s1.length() == 0) {
+            s1 = JOptionPane.showInputDialog(null, "Enter your Name, Raider");
+        }
+
+        while (mp.isSelected() && s1 != null && s2 != null && s2.length() == 0) {
+            s2 = JOptionPane.showInputDialog(null, "Enter your Name, Second Raider");
+        }
+
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        saveName();
         if (sp.isSelected()) {
-            System.out.println("single");
-        }else if (mp.isSelected()) {
-            System.out.println("multi");
+            if (s1 != null) {
+//                Action first
+
+                clip.stop();
+                this.dispose();
+            }
+
+        } else if (mp.isSelected()) {
+
+            if (s1 != null && s2 != null) {
+//                Action first
+
+                clip.stop();
+                this.dispose();
+            }
+
         }
+
+//        Anim.reSet();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         try {
             new mainMenu().setVisible(true);
-        } catch (UnsupportedAudioFileException ex) {
-            Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (LineUnavailableException ex) {
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
         }
+//        clip.start();
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -172,23 +215,54 @@ public class Levels extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        saveName();
         if (sp.isSelected()) {
-            System.out.println("single");
-        }else if (mp.isSelected()) {
-            System.out.println("multi");
+            if (s1 != null) {
+//                Action first
+
+                clip.stop();
+                this.dispose();
+            }
+
+        } else if (mp.isSelected()) {
+
+            if (s1 != null && s2 != null) {
+//                Action first
+
+                clip.stop();
+                this.dispose();
+            }
+
         }
+
+//        Anim.reSet();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        saveName();
         if (sp.isSelected()) {
-            System.out.println("single");
-        }else if (mp.isSelected()) {
-            System.out.println("multi");
+            if (s1 != null) {
+//                Action first
+
+                clip.stop();
+                this.dispose();
+            }
+
+        } else if (mp.isSelected()) {
+
+            if (s1 != null && s2 != null) {
+//                Action first
+
+                clip.stop();
+                this.dispose();
+            }
+
         }
+
+//        Anim.reSet();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

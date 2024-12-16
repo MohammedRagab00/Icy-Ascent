@@ -9,7 +9,6 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +37,7 @@ public class mainMenu extends javax.swing.JFrame {
             clip = (Clip) AudioSystem.getLine(info);
             clip.open(audioIn);
             clip.start();
-            clip.loop(Clip.LOOP_CONTINUOUSLY); // Set the volume to the saved level 
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
             FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             float range = gainControl.getMaximum() - gainControl.getMinimum();
             float gain = (range * currentVolume / 100.0f) + gainControl.getMinimum();
@@ -151,17 +150,12 @@ public class mainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    static String s;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
         new Levels().setVisible(true);
         this.dispose();
-//        s = JOptionPane.showInputDialog(null, "Enter your Name, Raider");
 
-//        Anim.reSet();
-//        this.dispose();
-//        clip.stop();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
