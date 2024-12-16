@@ -4,6 +4,7 @@
  */
 package Main.Screens;
 
+import Main.GAMEPLAY.River;
 import static Main.Screens.mainMenu.clip;
 import java.awt.Color;
 import java.awt.Font;
@@ -179,6 +180,7 @@ public class Levels extends javax.swing.JFrame {
         if (sp.isSelected()) {
             if (s1 != null) {
 //                Action first
+                new River(s1, s2, 1, 1);
 
                 clip.stop();
                 this.dispose();
@@ -188,6 +190,7 @@ public class Levels extends javax.swing.JFrame {
 
             if (s1 != null && s2 != null) {
 //                Action first
+                new River(s1, s2, 2, 1);
 
                 clip.stop();
                 this.dispose();
@@ -219,6 +222,7 @@ public class Levels extends javax.swing.JFrame {
         if (sp.isSelected()) {
             if (s1 != null) {
 //                Action first
+                new River(s1, s2, 1, 2);
 
                 clip.stop();
                 this.dispose();
@@ -228,6 +232,7 @@ public class Levels extends javax.swing.JFrame {
 
             if (s1 != null && s2 != null) {
 //                Action first
+                new River(s1, s2, 2, 2);
 
                 clip.stop();
                 this.dispose();
@@ -244,6 +249,7 @@ public class Levels extends javax.swing.JFrame {
         if (sp.isSelected()) {
             if (s1 != null) {
 //                Action first
+                new River(s1, s2, 1, 3);
 
                 clip.stop();
                 this.dispose();
@@ -253,6 +259,7 @@ public class Levels extends javax.swing.JFrame {
 
             if (s1 != null && s2 != null) {
 //                Action first
+                new River(s1, s2, 2, 3);
 
                 clip.stop();
                 this.dispose();
