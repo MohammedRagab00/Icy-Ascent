@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  * @author Moham
  */
 public class mainMenu extends javax.swing.JFrame {
-    
+
     public static Clip clip;
-    public static int currentVolume = 50;
+    public static int currentVolume = 70;
 
     /**
      * Creates new form test
@@ -27,23 +27,26 @@ public class mainMenu extends javax.swing.JFrame {
         initComponents();
         setTitle("YaRabFokElDeqa");
         File soundFile = new File("src/Assets/Sounds/commercial-aircraft-in-flight-announcement-5-17499.wav");
-        
+
         if (!soundFile.exists()) {
             System.err.println("Sound file not found: " + soundFile.getAbsolutePath());
             return;
         }
-        AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-        DataLine.Info info = new DataLine.Info(Clip.class, audioIn.getFormat());
-        clip = (Clip) AudioSystem.getLine(info);
-        clip.open(audioIn);
-        clip.start();
-        clip.loop(Clip.LOOP_CONTINUOUSLY); // Set the volume to the saved level 
-        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        float range = gainControl.getMaximum() - gainControl.getMinimum();
-        float gain = (range * currentVolume / 100.0f) + gainControl.getMinimum();
-        gainControl.setValue(gain);
+        if (clip == null) { // Initialize clip only if it's null
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            DataLine.Info info = new DataLine.Info(Clip.class, audioIn.getFormat());
+            clip = (Clip) AudioSystem.getLine(info);
+            clip.open(audioIn);
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY); // Set the volume to the saved level 
+            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            float range = gainControl.getMaximum() - gainControl.getMinimum();
+            float gain = (range * currentVolume / 100.0f) + gainControl.getMinimum();
+//        float gain = (float) (gainControl.getMinimum() + (Math.log10((currentVolume / 100.0) * 9 + 1) * range));
+            gainControl.setValue(gain);
+        }
         setResizable(false);
-        
+
         setLocationRelativeTo(null); // Center the window
     }
 
@@ -62,6 +65,7 @@ public class mainMenu extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,6 +108,11 @@ public class mainMenu extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Info");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 120, 60));
 
         jButton5.setBackground(new java.awt.Color(51, 51, 51));
@@ -128,6 +137,14 @@ public class mainMenu extends javax.swing.JFrame {
         });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 120, 60));
 
+        jLabel2.setBackground(new java.awt.Color(0, 255, 204));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("River Rage");
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 270, 90));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bground.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 700));
 
@@ -137,7 +154,10 @@ public class mainMenu extends javax.swing.JFrame {
     static String s;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        s = JOptionPane.showInputDialog(null, "Enter your Name, Raider");
+
+        new Levels().setVisible(true);
+        this.dispose();
+//        s = JOptionPane.showInputDialog(null, "Enter your Name, Raider");
 
 //        Anim.reSet();
 //        this.dispose();
@@ -167,6 +187,12 @@ public class mainMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        new Info().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,7 +204,7 @@ public class mainMenu extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
-    
+
     public void playSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         // Adjust the path to match the location of your sound file 
         File soundFile = new File("Assets/sounds/commercial-aircraft-in-flight-announcement-5-17499.wav");
@@ -209,5 +235,6 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
