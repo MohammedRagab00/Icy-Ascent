@@ -180,7 +180,7 @@ public class Levels extends javax.swing.JFrame {
         if (sp.isSelected()) {
             if (s1 != null) {
 //                Action first
-                new River(s1, s2, 1, 1);
+                new River(s1, s2, true, 1);
 
                 clip.stop();
                 this.dispose();
@@ -190,7 +190,7 @@ public class Levels extends javax.swing.JFrame {
 
             if (s1 != null && s2 != null) {
 //                Action first
-                new River(s1, s2, 2, 1);
+                new River(s1, s2, false, 1);
 
                 clip.stop();
                 this.dispose();
@@ -222,7 +222,7 @@ public class Levels extends javax.swing.JFrame {
         if (sp.isSelected()) {
             if (s1 != null) {
 //                Action first
-                new River(s1, s2, 1, 2);
+                new River(s1, s2, true, 2);
 
                 clip.stop();
                 this.dispose();
@@ -232,7 +232,7 @@ public class Levels extends javax.swing.JFrame {
 
             if (s1 != null && s2 != null) {
 //                Action first
-                new River(s1, s2, 2, 2);
+                new River(s1, s2, false, 2);
 
                 clip.stop();
                 this.dispose();
@@ -249,7 +249,7 @@ public class Levels extends javax.swing.JFrame {
         if (sp.isSelected()) {
             if (s1 != null) {
 //                Action first
-                new River(s1, s2, 1, 3);
+                new River(s1, s2, true, 3);
 
                 clip.stop();
                 this.dispose();
@@ -259,7 +259,7 @@ public class Levels extends javax.swing.JFrame {
 
             if (s1 != null && s2 != null) {
 //                Action first
-                new River(s1, s2, 2, 3);
+                new River(s1, s2, false, 3);
 
                 clip.stop();
                 this.dispose();

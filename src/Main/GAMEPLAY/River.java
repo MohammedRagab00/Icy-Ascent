@@ -22,13 +22,14 @@ public class River extends JFrame {
     private Animator animator;
 
     String name1, name2;
-    int numberOfPlayers, difficulity;
+    boolean singlePlayer;
+    int difficulity;
 
-    public River(String name1, String name2, int numberOfPlayers, int difficulity) {
+    public River(String name1, String name2, boolean singlePlayer, int difficulity) {
 
         this.name1 = name1;
         this.name2 = name2;
-        this.numberOfPlayers = numberOfPlayers;
+        this.singlePlayer = singlePlayer;
         this.difficulity = difficulity;
 
         GLCanvas glcanvas;
