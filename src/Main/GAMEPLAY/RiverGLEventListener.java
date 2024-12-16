@@ -96,7 +96,8 @@ public class RiverGLEventListener extends RiverListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_P) {
-//            Add logic to stop the game 
+//            Add logic to stop the game (don't forget to stop the key listener).
+            
 
         }
     }
