@@ -34,8 +34,11 @@ Welcome to the River Rage game! This game is developed using Java and OpenGL on 
 2. **Extract JOGL**:
    - Extract the zip file to `C:\` so you should have `C:\JOGLwin\lib32` and `C:\JOGLwin\lib64`.
 
-3. **Create a New Project**:
-   - Open NetBeans and create a new project, for example, "Computer Graphics".
+3. **Clone the Repository**:
+   - Open NetBeans and clone the River Rage repository:
+     ```bash
+     git clone https://github.com/MohammedRagab00/River-Rage.git
+     ```
 
 4. **Add JOGL Libraries**:
    - Right-click the project and choose "Properties".
