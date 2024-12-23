@@ -48,8 +48,6 @@ Welcome to the River Rage game! This game is developed using Java and OpenGL on 
    - Click "Add JAR/Folder", browse to `C:\JOGLwin\lib32`, select all files, and press "Add JAR/Folder". Repeat for `C:\JOGLwin\lib64`.
 
 5. **Run the Project**:
-   - After adding both sets of JARs, your library should look like this:
-     ![JOGL Libraries](https://mgayar.blogspot.com/2014/03/how-to-install-jogl11-into-netbeans.html)
    - Click OK -> OK, run your project/file, and it should work.
 
 ## Running the Game
