@@ -70,4 +70,4 @@ If you would like to contribute to the development of this game, please fork the
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the GNU General Public License (GPL) Version 3.
