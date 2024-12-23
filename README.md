@@ -29,7 +29,7 @@ Welcome to the River Rage game! This game is developed using Java and OpenGL on 
 ### Setting Up JOGL in NetBeans
 
 1. **Download JOGL**:
-   - Download the JOGL 1.1 "windows amd64 and i586" zip file from [here](https://github.com/MohammedRagab00/River-Rage/new/main?filename=README.md).
+   - Download the JOGL 1.1 "windows amd64 and i586" zip file from [here](https://mgayar.blogspot.com/2014/03/how-to-install-jogl11-into-netbeans.html).
 
 2. **Extract JOGL**:
    - Extract the zip file to `C:\` so you should have `C:\JOGLwin\lib32` and `C:\JOGLwin\lib64`.
@@ -46,7 +46,7 @@ Welcome to the River Rage game! This game is developed using Java and OpenGL on 
 
 5. **Run the Project**:
    - After adding both sets of JARs, your library should look like this:
-     ![JOGL Libraries](https://github.com/MohammedRagab00/River-Rage/new/main?filename=README.md)
+     ![JOGL Libraries](https://mgayar.blogspot.com/2014/03/how-to-install-jogl11-into-netbeans.html)
    - Click OK -> OK, run your project/file, and it should work.
 
 ## Running the Game
